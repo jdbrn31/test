@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../styles/login.css">
+    </head>
+    <body>
+
+        <!--LOGIN FORM PAGE-->
+        
+        <div class="container">
+            <div class="login_content" id="login_content">
+                <form class="login_container" action="/api/login" id="user_login" method="post">
+                <div class="form_group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="login_email" placeholder="Enter your email...">
+                </div>
+                <div class="form_group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="login_password" placeholder="Enter your password...">
+                </div>
+                <div class="form_group">
+                    <input type="submit" value="Login">
+                    <a href="#" id="show_register">Don't have account yet? click here to register!</a>
+                </div>
+            </form>
+
+
+            <!--REGISTRATION FORM PAGE-->
+            <form class="register_container" action="/api/register" id="user_register" method="post">
+                <div class="form_group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="register_email" placeholder="Enter your email...">
+                </div>
+                <div class="form_group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="register_password" placeholder="Enter your password...">
+                </div>
+                <div class="form_group">
+                    <input type="submit" id="register_btn" value="Register">
+                    <a href="#" id="show_login">Already have an account.</a>
+                </div>
+            </form>
+            </div>
+            <button id="login_modal">Login</button>
+        </div>
+        
+
+        <script src="/js/login.js"></script>
+        <script src="/js/register.js"></script>
+    </body>
+    </html>
