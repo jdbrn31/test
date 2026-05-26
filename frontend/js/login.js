@@ -72,35 +72,15 @@ if (user_login) {
             const data = await response.json()
 
             if (data.success) {
-                if (data.user.role === 'admin') {
-                    window.location.href = '/pages/admin-dashboard.html'
-                } else {
-                    await checkCustomerInfo(data.user.id)
-                }
-            }
+    if (data.user.role === 'admin') {
+        window.location.href = '/pages/admin-dashboard.html'
+    } else {
+        window.location.href = data.redirect
+    }
+}
 
         } catch (error) {
             console.error('Login failed:', error)
         }
     })
-}
-
-// =====================
-// CHECK CUSTOMER INFO
-// =====================
-async function checkCustomerInfo(userId) {
-    try {
-        const response = await fetch(`http://localhost:8080/api/customer/info/${userId}`, {
-            credentials: 'include'
-        })
-
-        if (response.ok) {
-            window.location.href = '/pages/main-page.html'
-        } else {
-            window.location.href = '/pages/customer-information.html'
-        }
-
-    } catch (error) {
-        console.error('Check customer info failed:', error)
-    }
 }

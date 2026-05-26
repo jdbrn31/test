@@ -21,4 +21,20 @@ const user_login = async ({ email, password }) => {
     return { success: true, user: dbUser }
 }
 
-module.exports = user_login
+const checkIdExist = async (user_id) => {
+    try {
+        const [rows] = await db.query(
+            `SELECT 1 FROM cus_info WHERE user_id = ? LIMIT 1`,
+            [user_id]
+        )
+        return rows.length > 0
+    } catch (error) {
+        console.error('Failed to check email existence', error)
+        return false
+    }
+}
+
+module.exports = {
+    user_login,
+    checkIdExist
+}

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const {user_login, checkEmailExist} = require('../../models/auth/user.login.model')
+const {user_login, checkIdExist} = require('../../models/auth/user.login.model')
 
 const login = async (req, res) => {
     try {
@@ -29,21 +29,21 @@ const login = async (req, res) => {
             maxAge: 60 * 60 * 1000
         })
 
-        const emailExist = await checkEmailExist(email)
+        const idExist = await checkIdExist(user.user_id)
 
-        if (!emailExist) {
+        if (!idExist) {
             return res.status(200).json({
-                success: true,
-                redirect: '/pages/customer-information.html'
-            })
-        }
+            success: true,
+            user: { id: user.user_id, email: user.email, role: user.role },
+            redirect: '/pages/customer-information.html'
+    })
+}
 
-        // CUSTOMER INFO EXISTS
         return res.status(200).json({
             success: true,
+            user: { id: user.user_id, email: user.email, role: user.role },
             redirect: '/pages/main-page.html'
-        })
-
+})
     } catch (error) {
         console.error('[login]', error)
         return res.status(500).json({ success: false, message: 'Server error' })
