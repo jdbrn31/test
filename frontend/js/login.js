@@ -72,12 +72,8 @@ if (user_login) {
             const data = await response.json()
 
             if (data.success) {
-                if (data.user.role === 'admin') {
-                    window.location.href = '/pages/admin-dashboard.html'
-                } else {
-                    await checkCustomerInfo(data.user.id)
-                }
-            }
+    window.location.href = data.redirect  // trust the backend's redirect
+}
 
         } catch (error) {
             console.error('Login failed:', error)

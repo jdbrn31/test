@@ -5,7 +5,7 @@ const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 // Verify logged-in user
 const verifyToken = (req, res, next) => {
-    console.log('cookies:', req.cookies)       // ✅ Add this
+    console.log('cookies:', req.cookies)      
     console.log('req.user before:', req.user)
     // Read cookie
     const token = req.cookies.token;

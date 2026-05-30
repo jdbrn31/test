@@ -1,9 +1,9 @@
 const express = require("express")
-const {save_customer } = require("../controllers/customer.info.controller")
+const appointment = require("../controllers/auth/appointment.controller.js")
 const {verifyToken }= require("../middlewares/auth.js")
 
 const router = express.Router()
 
-router.post("/customer/save-customer", verifyToken, save_customer)
+router.post('/appointment-submit', verifyToken, appointment)
 
 module.exports = router

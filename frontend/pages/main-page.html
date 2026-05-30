@@ -275,89 +275,76 @@
         </div>
       </div>
 
-      <div class="appt-form">
-        <div class="appt-form__title">📅 Book Your Appointment</div>
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="owner-name">Owner's Full Name</label>
-            <input type="text" id="owner-name" placeholder="e.g. Ana Reyes" />
+      <form id="appointment-form" action="" method="post">
+        <div class="appt-form">
+          <div class="appt-form__title">📅 Book Your Appointment</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="owner-name">Owner's Full Name</label>
+              <input type="text" id="owner-name" placeholder="e.g. Ana Reyes" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" />
+            </div>
+            <div class="form-group form-group--full">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="pet-name">Pet's Name</label>
+              <input type="text" id="pet-name" placeholder="e.g. Buddy" />
+            </div>
+            <div class="form-group">
+              <label for="pet-type">Type of Pet</label>
+              <select id="pet-type">
+                <option value="" disabled selected>Select type</option>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Bird</option>
+                <option>Rabbit</option>
+                <option>Reptile</option>
+                <option>Guinea Pig</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="doctor">Preferred Veterinarian</label>
+              <select id="doctor"></select>
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service">
+                <option value="" disabled selected>Select service</option>
+                <option>Wellness Exam</option>
+                <option>Vaccination</option>
+                <option>Surgery Consultation</option>
+                <option>Dental Cleaning</option>
+                <option>Laboratory / Diagnostics</option>
+                <option>Emergency</option>
+                <option>Follow-up Visit</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" />
+            </div>
+            <div class="form-group">
+              <label for="time">Preferred Time</label>
+              <select id="time">
+                <option value="" disabled selected>Select time</option>
+              </select>
+            </div>
+            <div class="form-group form-group--full">
+              <label for="notes">Additional Notes</label>
+              <textarea id="notes" placeholder="Describe your pet's symptoms, concerns, or any other relevant information…"></textarea>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" />
-          </div>
-          <div class="form-group form-group--full">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="your@email.com" />
-          </div>
-          <div class="form-group">
-            <label for="pet-name">Pet's Name</label>
-            <input type="text" id="pet-name" placeholder="e.g. Buddy" />
-          </div>
-          <div class="form-group">
-            <label for="pet-type">Type of Pet</label>
-            <select id="pet-type">
-              <option value="" disabled selected>Select type</option>
-              <option>Dog</option>
-              <option>Cat</option>
-              <option>Bird</option>
-              <option>Rabbit</option>
-              <option>Reptile</option>
-              <option>Guinea Pig</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="doctor">Preferred Veterinarian</label>
-            <select id="doctor">
-              <option value="" disabled selected>Select vet</option>
-              <option>Dr. Maria Santos — Internal Medicine</option>
-              <option>Dr. James Reyes — Surgery</option>
-              <option>Dr. Claire Lim — Exotic & Avian</option>
-              <option>Dr. Patrick Cruz — Dentistry</option>
-              <option>No preference</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service">
-              <option value="" disabled selected>Select service</option>
-              <option>Wellness Exam</option>
-              <option>Vaccination</option>
-              <option>Surgery Consultation</option>
-              <option>Dental Cleaning</option>
-              <option>Laboratory / Diagnostics</option>
-              <option>Emergency</option>
-              <option>Follow-up Visit</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="appt-date">Preferred Date</label>
-            <input type="date" id="appt-date" />
-          </div>
-          <div class="form-group">
-            <label for="appt-time">Preferred Time</label>
-            <select id="appt-time">
-              <option value="" disabled selected>Select time</option>
-              <option>8:00 AM</option>
-              <option>9:00 AM</option>
-              <option>10:00 AM</option>
-              <option>11:00 AM</option>
-              <option>1:00 PM</option>
-              <option>2:00 PM</option>
-              <option>3:00 PM</option>
-              <option>4:00 PM</option>
-            </select>
-          </div>
-          <div class="form-group form-group--full">
-            <label for="notes">Additional Notes</label>
-            <textarea id="notes" placeholder="Describe your pet's symptoms, concerns, or any other relevant information…"></textarea>
+          <div class="form-submit">
+            <button class="btn btn--accent" type="submit">🐾 Request Appointment</button>
           </div>
         </div>
-        <div class="form-submit">
-          <button class="btn btn--accent" type="button">🐾 Request Appointment</button>
-        </div>
-      </div>
+      </form>
     </div>
   </section>
 
@@ -438,6 +425,6 @@
   <footer class="footer">
     <p>© 2024 <strong>PawCare Veterinary Clinic</strong> · 142 Mahogany Street, Pasig City, Philippines · All rights reserved.</p>
   </footer>
-
+<script src="../js/appointment_form.js"></script>
 </body>
 </html>

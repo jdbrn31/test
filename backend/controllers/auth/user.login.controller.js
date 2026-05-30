@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken')
-const {user_login, checkEmailExist} = require('../../models/auth/user.login.model')
-
+const { user_login, checkCustomerInfo } = require('../../models/auth/user.login.model')
 const login = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -29,7 +28,7 @@ const login = async (req, res) => {
             maxAge: 60 * 60 * 1000
         })
 
-        const emailExist = await checkEmailExist(email)
+        const emailExist = await checkCustomerInfo(user.user_id)
 
         if (!emailExist) {
             return res.status(200).json({

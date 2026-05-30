@@ -43,6 +43,7 @@ try {
     }
 
     if (!/^[0-9]+$/.test(phone)) {
+        alert('Invalid phone number it it should start in 9xxxxxxxxx')
         return res.status(400).json({
             success: false,
             message: "Phone must contain numbers only"

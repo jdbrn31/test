@@ -19,6 +19,15 @@ const user_login = async ({ email, password }) => {
     }
 
     return { success: true, user: dbUser }
+   
+}
+    const checkCustomerInfo = async (user_id) => {
+    const [result] = await db.query(
+        `SELECT * FROM cus_info WHERE user_id = ?`,
+        [user_id]
+    )
+    return result.length > 0
 }
 
-module.exports = user_login
+
+module.exports ={ user_login, checkCustomerInfo}

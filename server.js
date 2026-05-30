@@ -6,6 +6,7 @@ require('dotenv').config()
 
 const userRoutes = require('./backend/routes/user.routes.js')
 const customerRoutes = require('./backend/routes/customer.route.js')
+const appointmentRoutes = require('./backend/routes/appointment.route.js')
 
 const app = express()
 
@@ -16,7 +17,8 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'frontend')))
 
 app.use(userRoutes)
-app.use('/api/customer', customerRoutes)
+app.use('/api', customerRoutes)
+app.use('/api', appointmentRoutes)
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'index.html'))
